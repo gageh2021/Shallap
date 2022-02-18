@@ -1,5 +1,7 @@
 function [] = xrf_data(element1,element2,core,period)
 
+%Added to Github
+
 %% inputs:
 % element1: The acronym for the element to be analyzed, or the numerator in the
 % element ratio to be analyzed. Must be placed in quotation marks with
