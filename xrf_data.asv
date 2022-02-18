@@ -77,7 +77,8 @@ else
             ylabel(element1+"(cps)"); % Add a y-axis label.
             xlabel("Distance (mm)"); % Add an x-axis label.
             legend('Raw Data',sprintf('%d-Point Moving Average',period)); % Add a legend.
-            filename = fullfile(repo_path, 'figs', "S-01", sprintf("S_01-" + element1));
+            filename = fullfile('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-01', sprintf("S_01-" + element1));
+           filename = fullfile(repo_path, 'figs', "S-01", sprintf("S_0%d-" + element1 +"-"+element2,i));
             print(filename, '-dpng')
         else
             E1_number = find(strcmpi(T.Properties.VariableNames,element1));
@@ -99,7 +100,8 @@ else
             print(filename, '-dpng')
         end
     elseif strcmpi((core),"2")==1
-        T = readtable(fullfile(repo_path, 'data', "S-02_XRF.csv"));
+        filename="S-02_XRF.csv";
+        T = readtable(filename);
         if strcmpi((element2),"N/A")==1
             E1_number = find(strcmpi(T.Properties.VariableNames,element1));
             E1 = table2array(T(:,E1_number));
@@ -113,7 +115,7 @@ else
             ylabel(element1+"(cps)"); % Add a y-axis label.
             xlabel('Distance (mm)'); % Add an x-axis label.
             legend('Raw Data',sprintf('%d-Point Moving Average',period)); % Add a legend.
-            filename = fullfile(repo_path, 'figs', "S-02", sprintf("S_02-" + element1));
+            filename = fullfile('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-02', sprintf("S_02-" + element1));
             print(filename, '-dpng')
         else
             E1_number = find(strcmpi(T.Properties.VariableNames,element1));
@@ -131,11 +133,12 @@ else
             ylabel(element1+"/"+element2+" Ratio"); % Add a y-axis label.
             xlabel('Distance (mm)'); % Add an x-axis label.
             legend('Raw Data',sprintf('%d-Point Moving Average',period)); % Add a legend.
-            filename = fullfile(repo_path, 'figs', 'S-02', sprintf("S_02-" + element1 +"-"+element2));
+            filename = fullfile('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-02', sprintf("S_02-" + element1 +"-"+element2));
             print(filename, '-dpng')
         end
     elseif strcmpi((core),"5")==1
-        T = readtable(fullfile(repo_path, 'data', "S-05_XRF.csv"));
+        filename="S-05_XRF.csv";
+        T = readtable(filename);
         if strcmpi((element2),"N/A")==1
             E1_number = find(strcmpi(T.Properties.VariableNames,element1));
             E1 = table2array(T(:,E1_number));
@@ -149,7 +152,7 @@ else
             ylabel(element1+"(cps)"); % Add a y-axis label.
             xlabel('Distance (mm)'); % Add an x-axis label.
             legend('Raw Data',sprintf('%d-Point Moving Average',period)); % Add a legend.
-            filename = fullfile(repo_path, 'figs', "S-05", sprintf("S_05-" + element1));
+            filename = fullfile('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-05', sprintf("S_05-" + element1));
             print(filename, '-dpng')
         else
             E1_number = find(strcmpi(T.Properties.VariableNames,element1));
@@ -167,11 +170,11 @@ else
             ylabel(element1+"/"+element2+" Ratio"); % Add a y-axis label.
             xlabel('Distance (mm)'); % Add an x-axis label.
             legend('Raw Data',sprintf('%d-Point Moving Average',period)); % Add a legend.
-            filename = fullfile(repo_path, 'figs', 'S-05', sprintf("S_05-" + element1 +"-"+element2));
+            filename = fullfile('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-05', sprintf("S_05-" + element1 +"-"+element2));
             print(filename, '-dpng')
         end
     else
-        msg = "Please enter a valid core number. Make sure the core number has quotation marks around it."
+        msg = "Please enter a valid core number."
         error(msg)
     end
 end
