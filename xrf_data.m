@@ -23,9 +23,11 @@ function [] = xrf_data(element1,element2,core,period)
 % 
 % Created by Henry Gage, February 12, 2022.
 
+repo_path = fileparts(mfilename('fullpath'));
+
 if strcmpi((core),'all')
     for i=[1,2,5]
-        T = readtable(sprintf("S-0%d_XRF.csv",i));
+        T = readtable(fullfile(repo_path, 'data', sprintf("S-0%d_XRF.csv",i)));
             if strcmpi((element2),"N/A")==1
                 E1_number = find(strcmpi(T.Properties.VariableNames,element1));
                 E1 = table2array(T(:,E1_number));
@@ -39,7 +41,7 @@ if strcmpi((core),'all')
                 ylabel(element1+"(cps)"); % Add a y-axis label.
                 xlabel("Distance (mm)"); % Add an x-axis label.
                 legend('Raw Data',sprintf('%d-Point Moving Average',period)); hold off; % Add a legend.
-                filename = fullfile(sprintf('/Users/henry.gage/Desktop/McMaster/Research/Glacial Research/Shallap XRF Data/Figures/R_Figures/S-0%d',i), sprintf("S_0%d-" + element1,i));
+                filename = fullfile(repo_path, 'Figures', 'R_Figures', sprintf('S-0%d',i), sprintf("S_0%d-" + element1,i));
                 print(filename, '-dpng')
             else
                 E1_number = find(strcmpi(T.Properties.VariableNames,element1));
