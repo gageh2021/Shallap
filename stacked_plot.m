@@ -4,8 +4,8 @@ function [] = stacked_plot(elements,element_ratios,core,period,title)
 % elements: A an array of the single elements to be analyzed, using element short forms. Must be placed in quotation marks with
 % first letter capitalized. Elements should be separated with a comma and
 % placed in square brackets.
-% element2: A an array of the element ratios to be analyzed, using element short forms, with a slash between the elements. Must be placed in quotation marks with
-% first letter capitalized. Element ratios should be separated with a comma and
+% element2: A an array of the element ratios to be analyzed, using element short forms, with a slash between the elements. 
+% Must be placed in quotation marks with first letter capitalized. Element ratios should be separated with a comma and
 % placed in square brackets.
 % core: The core number in quotation marks.
 % period: The period of the moving average trendline, entered as an
