@@ -31,7 +31,7 @@ if strcmpi((core),'all')
                 E1 = table2array(T(:,E1_number));
                 distance = table2array(T(:,1));
                 data = [distance,E1];
-                trendline=movavg(data,"simple",period);
+                trendline=movmean(data,period,'omitnan');
                 fig1 = figure; clf;
                 plot(distance,E1,'b.-'); hold on;
                 plot(trendline(:,1),trendline(:,2),"r-","LineWidth",2);
@@ -49,7 +49,7 @@ if strcmpi((core),'all')
                 ratio = E1./E2;
                 distance = table2array(T(:,1));
                 data = [distance,ratio];
-                trendline=movavg(data,"simple",period);
+                trendline=movmean(data,period,'omitnan');
                 fig1 = figure; clf;
                 plot(distance,ratio,'b.-'); hold on;
                 plot(trendline(:,1),trendline(:,2),"r-","LineWidth",2);
@@ -69,7 +69,7 @@ else
             E1 = table2array(T(:,E1_number));
             distance = table2array(T(:,1));
             data = [distance,E1];
-            trendline=movavg(data,"simple",period);
+            trendline=movmean(data,period,'omitnan');
             fig1 = figure; clf;
             plot(distance,E1,'b.-'); hold on;
             plot(trendline(:,1),trendline(:,2),"r-","LineWidth",2);
@@ -87,7 +87,7 @@ else
             ratio = E1./E2;
             distance = table2array(T(:,1));
             data = [distance,ratio];
-            trendline=movavg(data,"simple",period);
+            trendline=movmean(data,period,'omitnan');
             fig1 = figure; clf;
             plot(distance,ratio,'b.-'); hold on;
             plot(trendline(:,1),trendline(:,2),"r-","LineWidth",2);
